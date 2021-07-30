@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
-class PokemonList extends StatefulWidget {
+class PokemonDetailScreen extends StatefulWidget {
   @override
-  _PokemonList createState() => _PokemonList();
+  _PokemonDetailScreen createState() => _PokemonDetailScreen();
 }
 
-class _PokemonList extends State<PokemonList> {
-  var arr = ['a','b','c','d','e'];
+class _PokemonDetailScreen extends State<PokemonDetailScreen> {
+
+var arr = ['a', 'b', 'c', 'd', 'e'];
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +19,8 @@ class _PokemonList extends State<PokemonList> {
             itemBuilder: (context, index) {
               final item = arr[index];
               return Text(item,
-                  style: TextStyle(color: Colors.white,
-                  fontSize: 22));}),
+                  style: TextStyle(color: Colors.white, fontSize: 22));
+            }),
       ),
     );
   }

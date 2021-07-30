@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter/page/pokemonlist/PokemonList.dart';
+import 'package:pokemon_flutter/page/pokemonlist/PokemonListScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      home: PokemonList(),
+      home: PokemonListScreen(),
     );
   }
 }
