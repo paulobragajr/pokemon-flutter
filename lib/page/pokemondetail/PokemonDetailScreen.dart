@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class PokemonDetailScreen extends StatefulWidget {
+  const PokemonDetailScreen({Key? key}) : super(key: key);
+  
   @override
   _PokemonDetailScreen createState() => _PokemonDetailScreen();
 }
