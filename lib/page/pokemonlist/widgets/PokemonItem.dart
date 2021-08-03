@@ -1,15 +1,12 @@
-// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-// import 'package:pokedex_youtube/consts/consts_app.dart';
 import 'package:pokemon_flutter/const/ConstsApp.dart';
+import 'package:pokemon_flutter/model/Pokemon.dart';
 
-class PokeItem extends StatelessWidget {
-  final String name;
+class PokemonItem extends StatelessWidget {
   final int index;
-  final String num;
-  final List<String> types;
+  final Pokemon pokemon;
 
-  const PokeItem({Key? key, required this.name, required this.index, required this.num, required this.types}) : super(key: key);
+  const PokemonItem({Key? key, required this.index, required this.pokemon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +28,7 @@ class PokeItem extends StatelessWidget {
                     ),
                     opacity: 0.2,
                   ),
-                  tag: name + 'roatation',
+                  tag: pokemon.name + 'roatation',
                 ),
               ),
               Column(
@@ -40,7 +37,7 @@ class PokeItem extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0, top: 8.0),
                     child: Text(
-                      name,
+                      pokemon.name,
                       style: TextStyle(
                           fontFamily: 'Google',
                           fontSize: 16,
@@ -54,8 +51,8 @@ class PokeItem extends StatelessWidget {
               Align(
                 alignment: Alignment.bottomRight,
                 child: Hero(
-                  tag: name,
-                  child: Image.network('https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${num}.png',
+                  tag: pokemon.name,
+                  child: Image.network('https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokemon.num}.png',
                     alignment: Alignment.bottomRight,
                     height: 80,
                     width: 80
@@ -70,8 +67,8 @@ class PokeItem extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                ConstsApp.getColorType(type: types[0])!.withOpacity(0.7),
-                ConstsApp.getColorType(type: types[0])!
+                ConstsApp.getColorType(type: pokemon.type[0])!.withOpacity(0.7),
+                ConstsApp.getColorType(type: pokemon.type[0])!
               ],),
           borderRadius: BorderRadius.all(
             Radius.circular(20),

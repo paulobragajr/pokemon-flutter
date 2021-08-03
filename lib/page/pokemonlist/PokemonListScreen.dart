@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:pokemon_flutter/model/Pokemon.dart';
 import 'package:pokemon_flutter/model/PokemonApi.dart';
 import 'package:pokemon_flutter/page/pokemonlist/PokemonListService.dart';
-import 'package:pokemon_flutter/page/pokemonlist/widgets/PokeItem.dart';
+import 'package:pokemon_flutter/page/pokemonlist/widgets/PokemonItem.dart';
 
 class PokemonListScreen extends StatefulWidget {
   const PokemonListScreen({Key? key}) : super(key: key);
@@ -15,8 +15,6 @@ class PokemonListScreen extends StatefulWidget {
 class _PokemonListScreen extends State<PokemonListScreen> {
   PokemonListService service = new PokemonListService();
   var pokemonList = <Pokemon>[];
-
-  get types => null;
 
   /*onCreate*/
   @override
@@ -38,23 +36,6 @@ class _PokemonListScreen extends State<PokemonListScreen> {
             });
   }
 
-  Widget column(pokemonItem) => Expanded(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Image.network(
-                'https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokemonItem.num}.png',
-                height: 100,
-                width: 100),
-            Text(
-              pokemonItem.name,
-              style: TextStyle(fontSize: 16),
-            ),
-            Text('subtitle'),
-          ],
-        ),
-      );
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,11 +48,9 @@ class _PokemonListScreen extends State<PokemonListScreen> {
           itemCount: pokemonList.length,
           itemBuilder: (context, index) {
             final pokemonItem = pokemonList[index];
-            return PokeItem(
-              types: pokemonItem.type,
+            return PokemonItem(
               index: index,
-              name: pokemonItem.name,
-              num: pokemonItem.num,
+              pokemon: pokemonItem,
             );
           },
           gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
